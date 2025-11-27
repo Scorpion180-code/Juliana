@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Juliana 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f8f5fb;
+      --card:#fffafc;
+      --accent1:#cbb4f3; /* lavender */
+      --accent2:#ffd6e8; /* pink */
+      --text:#2b2530;
+      --muted:#6b6170;
+      --gold:#e6c07f;
+      --shadow: 0 12px 30px rgba(43,35,48,0.06);
+    }
+    body{font-family: "Inter", "Playfair Display", serif;}
+    h1,h2,h3{font-family:"Playfair Display", serif; letter-spacing:0.6px}
+    p,li{font-family:"Inter",sans-serif; color:var(--muted); line-height:1.7}
+    .card{background:var(--card); border-radius:18px; box-shadow:var(--shadow); padding:28px}
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Playfair Display", Georgia, serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    header.hero{
+      padding:80px 20px;
+      text-align:centre;
+      background: linear-gradient(135deg, #cbb4f3, #9f86ff);
+      color:#2b2338;
+    }
+    
+    header.hero{
+      padding:80px 20px;
+      text-align:center;
+      background:var(135deg, #cbb4f3, #9f86ff);
+      color:#2b2338;
+      border-bottom-left-radius:40px;
+      border-bottom-right-radius:40px;
+      box-shadow:0 12px 40px rgba(43,35,48,0.08);
+    }
+    header h1{
+      margin:0;
+      font-family:'Great Vibes', cursive;
+      font-size:64px;
+      line-height:1;
+      letter-spacing:1px;
+    }
+    header p.lead{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:18px;
+    }
+    main{max-width:980px;margin:42px auto;padding:24px}
+    .card{
+      background:var(--ivory);
+      border-radius:18px;
+      padding:26px;
+      box-shadow:0 10px 30px rgba(43,35,48,0.06);
+      margin-bottom:28px;
+    }
+    .intro{
+      display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    }
+    .intro .portrait{
+      flex:0 0 300px;height:350px;border-radius:18px;overflow:hidden;
+      box-shadow:0 8px 30px rgba(43,35,48,0.08);
+    }
+    .portrait img{width:100%;height:100%;object-fit:cover}
+    .intro .text{flex:1}
+    .text h2{margin:0 0 8px 0;font-size:28px}
+    .text p{margin:0;color:var(--muted);line-height:1.6}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start;}
+    .media{position:relative;height:360px;width:100%;border-radius:16px;overflow:hidden;background:#eee;transition:transform .45s cubic-bezier(.2,.9,.2,1), box-shadow .35s;}
+    .media img, .media video{width:100%;height:100%;object-fit:cover;display:block}
+    .media .caption{position:absolute;left:12px;bottom:14px;background:rgba(255,255,255,0.85);padding:8px 12px;border-radius:10px;font-size:13px}
+    .banner-media {width:100%;aspect-ratio:3/1; /* windscreen */ overflow:hidden;border-radius:20px}
+    .banner-media img,
+    .banner-media video {width:100%;height:100%;object-fit:cover;display:block;}
+
+    .fade-up{opacity:0; transform:translateY(12px); transition:opacity .7s ease, transform .7s;}
+    .fade-up.in{opacity:1; transform:translateY(0);}
+
+    /* poem / letter */
+    .letter{white-space:pre-wrap;font-size:18px;line-height:1.7;color:var(--text)}
+    .letter .quote{font-style:italic;color:#3b2f3f;padding:14px;border-left:4px solid rgba(203,180,243,0.6);background:linear-gradient(180deg, rgba(255,255,255,0.6), transparent)}
+
+    footer{padding:30px 20px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* floating heart */
+    .heart{position:fixed;right:24px;bottom:24px;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent),linear-gradient(120deg,#ff9fc8,#cbb4f3);box-shadow:0 12px 30px rgba(203,180,243,0.2);display:flex;align-items:center;justify-content:center;cursor:pointer}
+    .heart svg{width:28px;height:28px;fill:white}
+
+    .polaroid{background:#fff;border-radius:10px;padding:18px;box-shadow:0 18px 50px rgba(43,35,48,0.12)}
+    .polaroid img{border-radius:6px; height:260px; object-fit:cover}
+    .polaroid:after{content:'';display:block;height:12px}
+    .polaroid .caption{background:transparent; color:var(--muted); border-radius:8px; padding:6px 10px; box-shadow:none}
+
+    #particles{pointer-events:none; position:fixed; inset:0; z-index:10}
+    .particle{position:fixed; width:18px;height:18px; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent); border-radius:50%; opacity:.9; transform:translate3d(0,0,0); transition: transform 6s linear, opacity 6s;}
+
+    .hero{ background-image:linear-gradient(120deg,var(--accent1),var(--accent2)); background-attachment: fixed; background-size: cover; background-position:center; }
+
+    #reasons li{margin-bottom:12px}
+    .reasonBtn{background:transparent;border:2px solid rgba(43,35,48,0.06);padding:8px 12px;border-radius:12px}
+    .reasonText{color:var(--text); background:linear-gradient(180deg, rgba(255,255,255,0.6), transparent); padding:10px;border-radius:10px}
+
+    .modal{position:fixed;inset:0;background:rgba(11,8,12,0.5);display:none;align-items:center;justify-content:center;z-index:50}
+    .modal[aria-hidden="false"]{display:flex}
+    .modal-inner{background:var(--card);padding:24px;border-radius:12px;max-width:560px}
+
+    .timeline{border-left:3px solid rgba(203,180,243,0.35); padding-left:20px}
+    .event{margin-bottom:18px; position:relative}
+    .event time{display:block;font-weight:600;color:var(--muted)}
+    .event::before{content:'';position:absolute;left:-12px;top:6px;width:14px;height:14px;background:var(--accent1);border-radius:50%}
+
+    .swipe{position:relative;max-width:600px;height:380px;overflow:hidden;border-radius:12px}
+    .swipe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .swipe .after{clip-path:inset(0 50% 0 0)}
+
+    .slideshow{position:relative;height:320px;border-radius:18px;overflow:hidden}
+    .slide{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1s}
+    .slide.show{opacity:1}
+
+
+    
+    /* responsive tweaks */
+    @media (max-width:640px){header h1{font-size:44px} .portrait{flex-basis:140px;height:140px}}
+  </style>
+</head>
+<body>
+
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      const obs = new IntersectionObserver((entries)=> {
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('in');
+        });
+      }, {threshold: .12});
+      document.querySelectorAll('.fade-up').forEach(el=>{obs.observe(el)});
+    });
+  </script>
+
+  <header class="hero">
+    <h1>For Juliana From Yussani ❤️ </h1>
+    <p class="lead">Happy Birthday Ju, A small place to carry all the things I can't say out loud and in person. For my assignment for university, we were tasked to make websites and di-code, So i thought why not put my skills to the test and make somethings beautiful, Not only as a present for your birthday, But something that will stay forever, and we can always look at it whenever we want. So Ju here is my present to you for the time being, one of manny to come i pray. And this is my way of saying. I LOVE YOU AMOR.</p>
+  </header>
+
+  <main>
+    <section class="card intro fade-up">
+      <div class="portrait">
+        <img src="valentinespic.jpg" alt="Us together" />
+      </div>
+      <div class="text">
+        <h2>To The Love Who Began My Story</h2>
+        <p>I just wanted to wish you a Happy Birthday, Ju 
+      on your birthday, I want to give you words that actually feel like us, heavy with meaning, full of truth, and stitched together with every memory we have created. From the very beginning, you weren't just someone I loved you were my first everything, the person who made love real for me in a way nothing else ever did. You became the space where my soul finally felt at home. You became the kind of memory that doesn't fade, not even when life gets complicated or distance tries to dim the light between us. Every moment we had, our laughs, our quiet moments, our days spent just being ourselves, they engraved themselves into me in ways I'll never forget. For the days we shared and the quiet things that became ours  this is for you. Scroll down, play a memory, breathe with me, and enjoy with all your heart, Happy Birthday My Queen ❤️.</p>
+      </div>
+    </section>
+
+    <section class="card intro fade-up">
+      <h3 style="margin-top:0">Beautiful Memories</h3>
+      <div class="gallery" id="gallery">
+        <!-- Add your images and videos here. Keep filenames local (e.g. photo1.jpg, clip1.mp4) -->
+        <div class="media">
+          <img src="sunpic.jpg" alt="photo1" />
+          <div class="caption">Unblemished Radiance ⭐️</div>
+        </div>
+        <div class="media">
+          <img src="carpicture.jpg" alt="photo1" />
+          <div class="caption">US</div>
+        </div>
+        <div class="media">
+          <video controls src="carfunny.mp4"></video>
+          <div class="caption">Our laugh</div>
+        </div>
+        <div class="media">
+          <img src="firstptvid.mp4"></video>
+          <div class="caption">Our First Time Together</div>
+        </div>
+        <div class="media">
+          <video controls src="PTdance.mp4"></video>
+          <div class="caption">Our Dances</div>
+        </div>
+        <div class="media">
+          <video controls src="walktogether.mp4"></video>
+          <div class="caption">Our walkstogether</div>
+        </div>
+        <div class="media">
+          <video controls src="mechanicvid.mp4"></video>
+          <div class="caption">Your Smile</div>
+        </div>
+        <div class="media">
+          <video controls src="bike.mp4"></video>
+          <div class="caption">Peace</div>
+        </div>
+        <div class="media">
+          <video controls src="kitchenkiss.mp4"></video>
+          <div class="caption">Peace</div>
+        </div>
+        <div class="media">
+          <video controls src="valentines.mp4"></video>
+          <div class="caption">YOU🥺</div>
+        </div>
+        <div class="media">
+          <video controls src="valentines2.mp4"></video>
+          <div class="caption">YOU🥺</div>
+        </div>
+
+      <p style="margin-top:12px;color:var(--muted);font-size:14px"></p>
+    </section>
+
+    <section class="card intro fade-up">
+      <h3 style="margin-top:0">A letter For The Words I Can't Stop Holding In And Stop Thinking About Them.</h3>
+      <div class="letter">
+
+        <div class="quote">Today, on your day, on your Special Day I want you to know this. You are unforgettable. You are irreplaceable. You are the kind of love people pray for. You are the kind of soul God sends once in a lifetime. No matter what storms we've been through, no matter the mistakes, the healing, the overthinking, or the nights where things felt heavier than they should have my heart still chooses you. Even in the moments I failed to show it, even when pride or fear got in the way, the truth has always stayed the same: my love for you has never moved an inch. You taught me what real love feels like — not the perfect kind, but the kind that grows, sacrifices, forgives, and transforms. You taught me that love is about showing up, not running away. You gave me memories that still carry me through the hardest nights, memories that remind me of who we were, who we are, and who we can still become if life ever brings us back to each other again. I pray for you every day for your happiness, for your peace, for God to protect you and guide you. I pray that life gives you light, softness, and all the blessings you deserve. And I pray that, if it’s meant, God brings our souls back stronger, wiser, and ready in ways we weren't before. But today isn't about pain or what ifs. Today is about you,The Beautiful, Unforgettable and Amazing  woman you are. Ju, I hope today wraps you in love. I hope you smile the way you used to when we were lost in our own little world. I hope you feel celebrated, cherished, and seen. I hope you feel the warmth of every prayer that has been done for you. And if you ever wonder even for a second,whether someone out here still cares about you, still loves you deeply, still carries your memories like sacred treasures, Know that I do. Happy Birthday, Ju. With all my heart, with all I was, with all I am, and with all I pray to become, I love you. Always, Forever.
+
+        <p>"Ju before reading this i want to Pray for you"</p>
+
+        <p>Heavenly Father, On this day we celebrate Juliana's birth, Thank you for her life and for the joy she brings. I Pray you wrap her in your endless love, protect her, bless her and guide her. Fill her days with wonder,and may she always know your presence. I Pray and thank you for this girl, this women that you have placed in my hands. Lord i hope that she finds inner peace and comfort Lord. I Pray that she is always healthy and safe, I Pray she heals from the things that have brought here sadness and teared her heart, the things she does not talk about, I Pray that no matter what she goes through in life, she realizes she is enough and can do anything she puts her mind too, I Pray the future she has pictured for herself works as you planned for her, I Pray that no matter what happens between us, she still accomplishes everything she has ever wanted and becomes the women you want her to become. Lord I Pray she goes down the right path in life and nothing ever holds her back back from her dreams, I Pray that you help her move forward and chastise her for the blessings to come. IN JESUS NAME I PRAY AMEN. </p>
+
+        <p>PSALM 91:1-2 "Whoever dwells in the shelter of the Most High rest in the shadow of the Almighty. I will say of the lord, "He is my refuge and my fortress, My GOD, in whom i trust."</p>
+
+        <p>I Pray that you win in life, Achieve all your dreams, and get everything you want. I want to see you at the top, becoming the person you've always wanted to be the person you always talked about. I'll support you so loudly that you wont hear the voices of those who doubted you. Just know that i'm here for you andd always hwill be, and i believe in you with all my heart.</p>
+
+        <p>Knowing your going through a lot right now and i just want to remind you. You are so much stronger than you think, i know it does not feel that way. I know your tired and i know that somedays even the smallest things feel impossible. But iyour still here pushing through even when it hurts. And that matters im proud of you Ju. I Pray that God gives you his blessings and forgiveness. I Pray that he keeps encouraging you and Blessing you everyday to achieve all your dreams. I want to see you at the top becoming the person you've always wanted to be. I'll support you so loudly and proudly that you wont hear the voices of those who doubted you. Just know that i'm here for you, and i believe in you with all my heart and i will be with you in the journey.</p>
+          
+        <p>I don't want to unlearn your favorite color and have someone new learn mine. I don't want to explain that it is blue not just any blue; you know, the blue that looks great on you. I don't want someone to look at me crazy when you would know exactly what I mean. I don't want to retell old stories, the ones you knew like they were your own, like how we have known each other since caf and how you were my first love and my first everything. I don't want my traumas or the things I want to accomplish in the future to be turned into a resume for someone new. I don't want to laugh at someone else's jokes and wonder if you think they're funny, or catch myself reaching for a hand that stopped reaching back a long time ago. I don't want to hear a song we loved and have it belong to someone else. I want it to always be ours, even if we're not. I don't want to rewrite memories with someone else's handwriting like you were just a rough draft. I don't want to move on like love is something you outgrow like shoes that just stop fitting, because I still fit in 'us' even if we've already outgrown each other. I don't want to outlearn your favourite colour or anything about you and I certainly don't want to unlove you.</p>
+
+        <p style="margin-top:14px">A lot of times when relationships have problems we think this is why we shouldn't be in them. We have to realise this is the whole point relationships cause problems the same way life does and without these problems how do you actively grow or actively change? When we look for love we must accept what comes with it. We can't have all the benefits in life without the repercussions. If we actually want a relationship, if we actually want to pursue these things, we have to realise it will be uncomfortable. It will be hard. We will hurt. People only glorify love but don't realise that love is sacrifice, love is a change beyond yourself. It's not something you can contain, it's something you openly give, not with the idea that it will be given back, but because you want to give. A lot of times pride and ego are what truly drain relationships.</p>
+
+        <p>I just want you to know I'm so grateful for everything we did all the intimate and personal moments we shared together. I replay them in my head every second, they are truly memories I will never forget. You taught me so much. We have taught each other so much and you gave me something I never had. True love. If I had the opportunity to relive every moment again I would relive it, just to remember how it felt to be loved by you. I still love you so much and I always will. I hope you're accomplishing everything you wanted in life, I'll always be here for you and I love you forever. No matter how much time passes, a part of me will always belong to you and a part of you will always belong to me. You are my safe place, my heart's home. I hope life is kind to you, that you wake up every day with a reason to smile and know that God loves you, that I love you, and that you're surrounded by the love and warmth you need. If you ever find yourself lost or in need of comfort just remember somewhere in this world there's someone that still cares for you deeply.</p>
+
+        <p>I always pray and ask God for his forgiveness and that you may forgive me for the mistakes I have made. I pray that God brings us back together, but not only to bring us back together, but to also change me as a person, so that i not only come back stronger mentally, but also as a new person, someone that will not bring you hurt, someone that will turn his mistakes into welldoings, someone that will be there for their patrner in every situation needed, someone that will bring only love and peace within them, not only stronger but better, with more understanding, patience, forgiveness and for Him to be the centre of our relationship and our healing. Sometimes you have to start over to make it stronger. The truth about grudges or being upset for a long period is that whenever you choose to hold them, you only ever hurt yourself more, because anything you hold on to tends to have power over you. Resentment causes sickness. Resentment causes pain. It takes away from your own happiness.</p>
+
+        <p>You start to realise that a relationship can work and be fixed in almost any situation.  But it just takes both of you wanting it to work and correcting what you're doing that hurts your partner. For a long time I carried the shameful thought that maybe I didn't try hard enough, maybe I missed a sign, maybe if I had done one thing differently we would still be here. That otherthinking eats at you. But loving someone well isn't a transaction, it isn't a debt you pay off and then expect reciprocity. Sometimes people are incapable of giving back in the ways you need, their capacity is different. I own the mistake I made. I stayed quiet when it would have been easier to communicate. I made space and kept my thoughts to myself when it would have been easier to open the door and share what I was overthinking. I am trying to get rid of these old habits and grow from my mistakes because the person I love deserves the best from their partner. I always ask myself "are you not scared". Abosulutely i am afraid of being alone i can not believe that all these plans of having my own family and kids will just vanish like that like nothing, i cant bare to lose you you make me happy you make my soul happy, your the light that it always needed and to see it go away sacres me because i dont want to go back to my old self, my biggest fears is being alone again and hurting myself, you are the only person that makes my smile come out, i dont know how you do it but it is amazing, i am serious about us i always was, i promised i would always fight for us, and i will keep that promise, not just because i promised, but because i love you with all my heart, are we are meant to be. Sometimes God separated 2 souls so that they can come back stronger together. I cant just walk away like this knowing the pain that will always be kept in this fragile hurt of mine, i will try with you over and over again i will never give up on us. I dont want to wake up years from now wondering what we could've been. We are meant to be more than this, i'm not saying that i'll be easy, i know it won't be. But i'm willing to fight for us, even if it means starting from scratch. I'd rather fail trying than live with the regret of not trying at all. </p>
+
+        <p>Being a good person isn't about never messing up; it's about what you do after. It's owning the harm you didn't intend and understanding your motives. It's wanting to be better even on the days you fall short. It's having the courage to look at yourself honestly and still choose to grow. I want God, and I want you to know that even though I was going through the worst of times, I still recognise something greater than myself. I'm never going to give up my faith in Him just because things are bad. He was there when things were good and when they were hard. I want to give it one more try. I want to keep going until it's right. Failure is not an option at this point. We have been through so much together and there is still so much love between us. If the difference between getting my love back and not is trying one more time, then what is truly stopping me from trying? We owe ourselves the chance of trying one more time because we promised we would never let anything get between us. It's us against the world. I promised I would not let anything take you away from me and I will not die with this unfinished.</p>
+
+        <p>Sometimes i ask myself how do i forgive myself for the ways ive hurt people, for the things i have said out of fear, for the moments i werent present, for the version of me that didnt know how to love gently yet, i have apoligised to a lot of people in my life for my mistakes,but the hardest person to apologise to has always been myself. Because i can accept someone else saying "it's okay", but i cant seem to believe it when i try to say it to myself, theres a part of me that thinks i should have known better, should have done better, should have shown up differently, even when i was doing the best i could, with the version of myself i was at the time, and that is the part. no talks about, the quite shame, the replaying, the wondering if you ruined something that could have turned into something beautiful, if only you were softer, wiser, steadier, but what i'm learning is self forgiveness isn't about pretending it didnt happen. it's not about excusing yourself or erasing the harm, it's about acknowledgin that you've grown. That the person who made those mistakes is not the person you are now. That you've learned and you're trying and you're different because of it. And if your trying to forgive yourself start here you didn't know then what you know now. You're allowed to outgrow your own mistakes, and you're allowed to give yourself the same compassion you've have spent all these times giving everyone else. </p>
+
+        <p>Every dream we had together shouldn't fall apart. There is true love between us — love that is granted by God and very rare. We are hurting ourselves and making our traumas deeper when we could be fixing the love we always had. I'm tired of feeling this loneliness and pain. I want the love and passion we had, to be with each other, to talk about our days, our plans, what went good and bad to simply be present with each other. I want it to be you. I will keep trusting God and praying that one day you'll walk through. I ruined it, it wasn't you, it was me and it haunts me every second. I cry myself to sleep thinking about everything I have done and how things could have been better if I'd changed one simple thing. I stare at our picture and imagine our beautiful moments and try to think myself to sleep. I wish I could tell the old me that love isn't something you earn by being perfect. You don't need to try to impress all the time be yourself. I keep replaying what-ifs like songs on repeat, trying to forgive naive me for choosing comfort over the risk of something complete.</p>
+
+        <p>We had a bond no one else had. Even if we are distant and in no contact, i know deep down it's still there. I promised myself to always be here for you no matter what circumstances and i'm keeping it. I hope one day we cac just sit down and have a real talk a real conversation with our feeling and worries to the side out of it. It wasn't supposed to end like this and we both know it god knows it. You know if you need me for anything i'm just a call away.</p>
+
+        <p>Now I stand in places that make me shine to relive memories that dig deep in my soul for words I wish to speak. When I do, my heart looks around for you. Even if I don't see instant results, I'm planting seeds for the growth of tomorrow because everything done today will always shine tomorrow. Allowing yourself to continue when you don't see results is powerful only when you give up do things stagnate. Your job is to continue putting in the work and trust that what you want will bloom in its time. The true test is when the sky is clear and when the storm hits and you still choose to move forward. We just want clear skies and not realise that the storm has a purpose, the storm knocks down anything without a strong foundation. We go through things to test if the foundation is strong enough to hold what we desire. Communication is key, but there must be understanding for communication to take place.</p>
+
+        <p>I can't thank you enough. My words cannot describe the gratitude I have for what you have done for me. I have had time to understand myself and identify parts of me that made me who I am today. Nothing teaches a man more about life than his own mistakes.</p>
+
+      </div>
+    </section>
+
+    <section class="card intro fade-up" style="text-align:center">
+  <h3 style="margin-top:0">A small interactive keepsake</h3>
+  <p style="color:var(--muted)">
+    I love you more than words can descibre you mean everything to me
+    and i promised myself long time ago that i would never let anything get between us.
+    Even if that means my own self, so right here i promise you that with the guidance of God i will own up for my mistakes and change 
+    to be a better man, not just for you but for myself for everything and everyone that i have hurt or caused any pain unitentionally.
+  </p>
+  <button
+    id="openNote"
+    style="
+      padding:12px 18px;
+      border-radius:10px;
+      border:none;
+      background:#cbb4f3;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    "
+  >
+    Open a note
+  </button>
+</section>
+
+
+    <section class="card fade-up">
+      <h3>Reasons Why I Love You</h3>
+      <ul id="reasons"></ul>
+    </section>
+
+    <section class="card fade-up">
+    <h3>Our Story</h3>
+    <div class="timeline">
+    <div class="event"><time>September 2016</time><p>We met in portugal at caf.</p></div>
+    <div class="event"><time>15 July 2024</time><p>Our First date, Our first time meeting after so manny yeaers.</p></div>
+    <!-- add more -->
+    </div>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <audio id="bgm" loop src="assets/song.mp3" preload="auto"></audio>
+    <button id="muteBtn" aria-label="Toggle music" style="position:fixed;right:20px;bottom:100px;padding:10px 14px;border-radius:12px;background:var(--accent1);border:none;color:#fff">🔊</button>
+    Made with hope and better days in mind.
+
+    <script>
+      const bgm= document.getElementById('bgm');
+      const btn= document.getElementById('muteBtn');
+      let playing=false, vol=0;
+      function fadeIn(){bgm.volume=0; bgm.play(); playing=true; let i=0; const t=setInterval(()=>{ if(bgm.volume<0.6) bgm.volume = Math.min(0.6, bgm.volume + 0.02); else clearInterval(t); },60)}
+      function fadeOut(){ let t=setInterval(()=>{ if(bgm.volume>0.02) bgm.volume=Math.max(0, bgm.volume - 0.02); else {bgm.pause(); playing=false;clearInterval(t)} },60)}
+      btn.addEventListener('click', ()=>{
+        if(!playing) {fadeIn(); btn.textContent='🔇'} else {fadeOut(); btn.textContent='🔊'}
+      });
+    </script>
+
+    <script>
+function spawnParticle(){
+  const el = document.createElement('div'); el.className='particle';
+  const x = Math.random()*100; el.style.left = x + 'vw';
+  el.style.top = '-4vh';
+  el.style.background = 'linear-gradient(120deg,#ffd6e8,#cbb4f3)';
+  el.style.opacity = 0.95;
+  document.getElementById('particles').appendChild(el);
+  setTimeout(()=> el.style.transform = `translateY(110vh) rotate(${Math.random()*360}deg)`,50);
+  setTimeout(()=> el.remove(),7000);
+}
+setInterval(()=>{ if(Math.random()>0.6) spawnParticle(); },700);
+</script>
+
+<script>
+const reasons = [
+ "I Love You because choosing you is the best decision I've ever made. I asked you to marry me because my future makes sense only with you in it. I put a ring on your finger not just as a promise, but as a declaration that you are my forever. You're my fiancée, my partner, my safe place. Every plan I make, every dream I chase, I see you standing next to me, not behind me, not ahead of me, but right there with me",
+ "I Love You because we dream as one. We've talked about our future, about the life we'll build and the love we'll pour into it. The family that we want to create, the type of family that will be loved, cherished, educated, and have the presence of God all around us. I can imagine us old seeing what we created standing all around us, and rethinking to these exact words. I can feel it like they're waiting for us somewhere in the future we're creating together. Our dreams aren't just wishes, they're shared visions of a home filled with love, laughter, support, and purpose. You make the future feel exciting and safe at the same time",
+ "I Love You because you're my best friend, my home, and my heart. You believe in me when I doubt myself. You love me in ways that feel deep, patient, and real. With you, love isn't just something I feel, it's something I live for. And strive everyday to experience it every second of my life and reciprocate. And I'd choose you again and again, in every lifetime.",
+ // add many more
+];
+const ul = document.getElementById('reasons');
+reasons.forEach((r,i)=>{
+  const li = document.createElement('li');
+  li.innerHTML = `<button class="reasonBtn">Reason ${i+1}</button><div class="reasonText" style="display:none;margin-top:8px">${r}</div>`;
+  ul.appendChild(li);
+});
+document.addEventListener('click', e=>{
+  if(e.target.classList.contains('reasonBtn')){
+    const text = e.target.nextElementSibling;
+    text.style.display = text.style.display === 'none' ? 'block' : 'none';
+  }
+});
+</script>
+
+<script>
+document.querySelectorAll('.open-when').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const key = btn.dataset.key;
+    const modal = document.getElementById('modal-'+key);
+    modal.setAttribute('aria-hidden','false');
+  });
+});
+document.querySelectorAll('.modal .close').forEach(c=>c.addEventListener('click', e=>{
+  e.target.closest('.modal').setAttribute('aria-hidden','true');
+}));
+</script>
+
+<script>
+document.querySelectorAll('.swipe').forEach(el=>{
+  const before = document.createElement('img'); before.src = el.dataset.before;
+  const after = document.createElement('img'); after.src = el.dataset.after; after.className='after';
+  el.appendChild(before); el.appendChild(after);
+  el.addEventListener('mousemove', e=>{
+    const rect=el.getBoundingClientRect();
+    const pct = (e.clientX - rect.left)/rect.width*100;
+    after.style.clipPath = `inset(0 ${100-pct}% 0 0)`;
+  });
+});
+</script>
+
+<div class="banner-media" id="surprise">
+  <img src="carpicture.jpg">
+  <div class="caption">Tap Me</div>
+</div>
+
+<script>
+document.getElementById('surprise').addEventListener('click',()=>{
+  alert("Ju you are my forever. You are my world.");
+});
+</script>
+
+<div class="sig" aria-hidden="true">
+  <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="30" font-family="Great Vibes" font-size="28" fill="#2b2530">— Y.</text>
+  </svg>
+</div>
+
+<div class="banner-small">
+  <img src="mirror.jpg" class="us">
+  <img src="mirror2.jpg" class="us">
+  <img src="mirror3.jpg" class="us">
+</div>
+
+<script>
+let i=0; const slides=document.querySelectorAll('.slideshow .slide');
+setInterval(()=>{ slides[i].classList.remove('show'); i=(i+1)%slides.length; slides[i].classList.add('show'); },4000);
+</script>
+
+
+<button class="open-when" data-key="sad">Open when you're sad</button>
+<div class="modal" id="modal-sad" role="dialog" aria-hidden="true">
+  <div class="modal-inner">
+    <button class="close">✕</button>
+    <h4>Open when you're sad</h4>
+    <p>My love, I just want you to know how deeply appreciated you are. You are stronger than you realize, kinder than the world deserves, and more beautiful in ways that have nothing to do with what people see. Even on the days you question yourself, I believe in you completely. You inspire me simply by being you. Your heart, your patience, your determination, they make me proud every single day. No matter what life puts in front of us, I want you to remember that you never walk alone. I’m always here, supporting you, loving you, and choosing you. Don’t ever doubt your worth or your place in this world, especially in my life. You are loved more deeply than words can fully explain, and I will always be your safe place, your biggest cheerleader, and your forever.</p>
+  </div>
+</div>
+
+
+  </footer>
+
+  <div class="banner">
+    <img src="sunpic.jpg" alt="">
+    <div class="caption">Unblemished Radiance</div>
+  </div>
+
+  <div class="heart" id="heart" title="Play a memory">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.8-9.6-8.1C-1.6 6.3 6.7 2.2 9.9 6.1 12.1 8.6 12 9 12 9s.1-.4 2.1-2.9C17.3 2.2 24.6 6.3 21.6 12.9 19.5 16.2 12 21 12 21z"/></svg>
+  </div>
+
+  <div id="particles" aria-hidden="true"></div>
+
+  <div class="swipe" data-before="assets/before.jpg" data-after="assets/after.jpg"></div>
+
+
+  <script>
+    // heart button triggers an alert / modal — replace with nicer modal if you want
+    document.getElementById('heart').addEventListener('click', function(){
+      const note = `Ju Happy Birthday. I love you more than words can say. If you ever open this, know that I'm thinking of you.I love you more than words could ever fully explain, and the love I have for you is rooted in nothing but deep respect, admiration, and gratitude for who you are. I respect your heart, your strength, the way you carry yourself through life even when things are difficult, and the way you love so genuinely. You mean more to me than just being my partner, you are my home, my peace, and the person who understands me in ways no one else ever has. Every day you’re not right here with me, I feel the absence of your presence in everything, from the quiet moments to the loud ones, because life simply feels better when you’re by my side. I miss your voice, your smile, your laugh, and the comfort that comes just from knowing you’re near. Being away from you reminds me how deeply connected we are and how much you matter to my heart. No matter the distance or the time, my love for you doesn’t weaken, it grows stronger, because you’re worth missing, worth waiting for, and worth loving with everything I have.`;
+      alert(note);
+    });
+
+    // openNote shows the same message (you can change it)
+    document.getElementById('openNote').addEventListener('click', function(){
+      const msg = `JU, I'm sorry for my mistakes. I love you and I am trying to be better. Happy Birthday. With all my heart.`;
+      alert(msg);
+    });
+
+    // small enhancement: allow drag & drop to replace images (client-side preview)
+    const gallery = document.getElementById('gallery');
+    gallery.addEventListener('dragover', (e)=>{e.preventDefault();gallery.style.opacity=0.9});
+    gallery.addEventListener('dragleave', ()=>{gallery.style.opacity=1});
+    gallery.addEventListener('drop', (e)=>{
+      e.preventDefault();gallery.style.opacity=1;
+      const files = Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')||f.type.startsWith('video/'));
+      files.forEach(file=>{
+        const url = URL.createObjectURL(file);
+        const div = document.createElement('div');div.className='media';
+        if(file.type.startsWith('image/')){
+          const img = document.createElement('img');img.src=url;div.appendChild(img);
+        } else {
+          const v = document.createElement('video');v.src=url;v.controls=true;div.appendChild(v);
+        }
+        const cap=document.createElement('div');cap.className='caption';cap.textContent='New memory';div.appendChild(cap);
+        gallery.prepend(div);
+      });
+    });
+  </script>
+</body>
+</html>
