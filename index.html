@@ -82,6 +82,22 @@
      object-fit: contain;
      display: block;
     }
+
+    .image-box {
+       width: 100%;
+       display: flex;
+       justify-content: center;   /* centers horizontally */
+       align-items: center;       /* centers vertically */
+       overflow: hidden;
+    }
+
+    .image-box img {
+       max-width: 100%;
+       height: auto;
+       object-fit: contain;
+       display: block;
+    }
+    
     .intro .text{flex:1}
     .text h2{margin:0 0 8px 0;font-size:28px}
     .text p{margin:0;color:var(--muted);line-height:1.6}
@@ -165,8 +181,9 @@
 
   <main>
     <section class="card intro fade-up">
-      <div class="photo">
-        <img src="media/valentinespic.jpg" alt="" >
+      <div class="image-box">
+        <img src="media/valentinespic.jpg" alt="photo">
+      </div>
         <div class="caption"> Beautiful ❤️💍
       </div>
       <div class="text">
