@@ -129,13 +129,17 @@
     .banner-media img,
     .banner-media video {width:100%;height:100%;object-fit:cover;display:block;}
 
-    .fade-up{opacity:0; transform:translateY(12px); transition:opacity .7s ease, transform .7s;}
+    .fade-up{opacity:1 !important; transform: none !important;transition:opacity .7s ease, transform .7s;}
     .fade-up.in{opacity:1; transform:translateY(0);}
 
     /* poem / letter */
     .letter{white-space:pre-wrap;font-size:18px;line-height:1.7;color:var(--text)}
     .letter .quote{font-style:italic;color:#3b2f3f;padding:14px;border-left:4px solid rgba(203,180,243,0.6);background:linear-gradient(180deg, rgba(255,255,255,0.6), transparent)}
-
+    .letter, .intro, .card {
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+     }
     footer{padding:30px 20px;text-align:center;color:var(--muted);font-size:14px}
 
     /* floating heart */
@@ -173,9 +177,26 @@
     .slide{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1s}
     .slide.show{opacity:1}
 
+   /* MOBILE FIX */
+@media (max-width: 800px) {
+  .card, .intro, .letter {
+    display: block !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 15px !important;
+  }
 
-    
-    /* responsive tweaks */
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+     /* responsive tweaks */
     @media (max-width:640px){header h1{font-size:44px} .portrait{flex-basis:140px;height:140px}}
   </style>
 </head>
@@ -207,7 +228,7 @@
         <p>I just wanted to wish you a Happy Birthday, Ju 
       on your birthday, I want to give you words that actually feel like us, heavy with meaning, full of truth, and stitched together with every memory we have created. From the very beginning, you weren't just someone I loved you were my first everything, the person who made love real for me in a way nothing else ever did. You became the space where my soul finally felt at home. You became the kind of memory that doesn't fade, not even when life gets complicated or distance tries to dim the light between us. Every moment we had, our laughs, our quiet moments, our days spent just being ourselves, they engraved themselves into me in ways I'll never forget. For the days we shared and the quiet things that became ours  this is for you. Scroll down, play a memory, breathe with me, and enjoy with all your heart, Happy Birthday My Queen ❤️.</p>
       </div>      
-    </div>      
+    </div>   
       
     </section>
 
